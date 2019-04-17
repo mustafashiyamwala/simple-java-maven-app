@@ -4,7 +4,8 @@ pipeline{
 	stages{
 		stage('Build'){
 			steps{
-				sh -B -DskipTests clean packag
+				checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/mustafashiyamwala/simple-java-maven-app.git']]])
+				
 			
 			}
 		}
