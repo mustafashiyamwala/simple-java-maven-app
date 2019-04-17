@@ -27,7 +27,7 @@ pipeline{
 		}
 		stage('Deploy'){
 			steps{
-				echo "After Deployment " ${currentBuild.result}			
+				sh echo "After Deployment " ${currentBuild.result}			
 			}
 		}
 	}
