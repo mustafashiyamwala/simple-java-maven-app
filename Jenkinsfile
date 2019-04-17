@@ -25,5 +25,18 @@ pipeline{
 				}
 			}
 		}
+		stage('Deploy'){
+			steps{
+				echo "After Deployment " ${currentBuild.result}			
+			}
+		}
 	}
+	post{
+		success{
+			mail bcc: '', body: 'Thanks', cc: '', from: '', replyTo: '', subject: 'Success', to: 'mustafashiyamwala786@gmail.com'
+		}
+		failure{
+			mail bcc: '', body: 'Thanks', cc: '', from: '', replyTo: '', subject: 'Failure', to: 'mustafashiyamwala786@gmail.com'
+		}
+	}	
 }
