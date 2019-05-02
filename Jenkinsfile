@@ -26,6 +26,13 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+	stage('Build Image'){
+		echo 'Starting to build docker image'
+		script{
+			def customImage = docker.build("my-image:${env.BUILD_ID}")
+		}
+		echo 'Image Build'	
+	}
     }
 }
 
